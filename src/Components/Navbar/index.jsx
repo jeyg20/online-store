@@ -2,78 +2,34 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const menuLeft = [
-    {
-      name: "ShopI",
-      path: "/",
-      className: "font-semibold text-lg",
-    },
-    {
-      name: "Clothes",
-      path: "/Clothes",
-      className: "",
-    },
-    {
-      name: "Tech",
-      path: "/Tech",
-      className: "",
-    },
-    {
-      name: "Furniture",
-      path: "/Furniture",
-      className: "",
-    },
-    {
-      name: "Toys",
-      path: "/Toys",
-      className: "",
-    },
-    {
-      name: "Others",
-      path: "/Others",
-      className: "",
-    },
+    { name: "ShopI", path: "/", className: "font-semibold text-lg" },
+    { name: "All", path: "/All" },
+    { name: "Clothes", path: "/Clothes" },
+    { name: "Tech", path: "/Tech" },
+    { name: "Furniture", path: "/Furniture" },
+    { name: "Toys", path: "/Toys" },
+    { name: "Others", path: "/Others" },
   ];
   const menuRight = [
-    {
-      name: "My Account",
-      path: "/my-account",
-      className: "",
-    },
-    {
-      name: "My Orders",
-      path: "/my-orders",
-      className: "",
-    },
-    {
-      name: "Orders History",
-      path: "/orders-history",
-      className: "",
-    },
-    {
-      name: "Sign In",
-      path: "/sign-in",
-      className: "",
-    },
-    {
-      name: "🛒 0",
-      path: "/cart",
-      className: "",
-    },
+    { name: "My Account", path: "/my-account" },
+    { name: "My Orders", path: "/my-orders" },
+    { name: "Orders History", path: "/orders-history" },
+    { name: "Sign In", path: "/sign-in" },
+    { name: "🛒 0", path: "/cart" },
   ];
-  const activeStyle = "underline";
+  const activeStyle = "underline ";
   return (
-    <nav className="flex justify-between items-center z-10 p-5 font-light text-sm">
+    <nav className="flex justify-between items-center z-10 p-5 font-light text-md">
       <ul className="flex items-center gap-3">
         {menuLeft.map((item, index) => (
           <NavLink
             key={index}
             to={item.path}
             exact
-            className={({ isActive, isPending }) =>
-              `${isPending ? "pending" : isActive ? activeStyle : ""}  ${
-                item.className
-              }`
-            }
+            className={({ isActive }) => `
+              ${isActive && item.name !== "ShopI" ? activeStyle : ""}
+              ${item.className}
+              `}
           >
             {item.name}
           </NavLink>

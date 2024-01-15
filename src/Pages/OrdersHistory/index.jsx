@@ -1,7 +1,7 @@
+import Layout from "../../Components/Layout";
+
 function OrdersHistory() {
-  return (
-    <div>OrdersHistory</div>
-  )
+  return <Layout>OrdersHistory</Layout>;
 }
 
-export default OrdersHistory
+export default OrdersHistory;
